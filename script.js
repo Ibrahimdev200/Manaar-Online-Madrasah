@@ -143,14 +143,17 @@ function updatemenu() {
 
 
   // contact
+  function showLoading() {
+    // Prevent the form from submitting immediately
+    event.preventDefault();
 
-function updatemenu() {
-    var menu = document.getElementById('menu');
-    var checkbox = document.getElementById('responsive-menu');
-    if (checkbox.checked) {
-        menu.style.display = 'block';
-    } else {
-        menu.style.display = 'none';
-    }
+    // Hide the form and show the loading spinner
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('loading').classList.remove('hidden');
+
+    // Simulate a delay for form submission (e.g., 2 seconds)
+    setTimeout(function () {
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('thank-you').classList.remove('hidden');
+    }, 2000);
 }
-
