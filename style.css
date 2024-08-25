@@ -505,7 +505,7 @@ hr{
     cursor: pointer;
     animation: pulse 1.5s infinite ease-in-out;
     transition: transform 0.3s ease;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px rgba(11, 31, 219, 0.918);
 }
 
 .play-icon:hover {

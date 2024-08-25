@@ -186,9 +186,13 @@ window.addEventListener('scroll', () => {
 });
 
 
-    document.getElementById('playButton').addEventListener('click', function() {
-        var video = document.getElementById('myVideo');
-        video.play();
-        this.style.display = 'none'; // Hide the play icon when the video starts playing
-    });
+   
 
+    document.querySelector('.play-icon').addEventListener('click', function() {
+        var video = document.getElementById('myVideo');
+        video.style.display = 'block';  // Show the video
+        video.play();  // Start playing the video
+        this.style.display = 'none';  // Hide the play icon
+        document.querySelector('.video-placeholder').style.display = 'none';  // Hide the placeholder image
+    });
+    
