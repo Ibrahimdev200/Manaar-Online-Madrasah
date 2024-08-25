@@ -498,12 +498,35 @@ hr{
     transform: translate(-50%, -50%);
     font-size: 60px; /* Adjust size as needed */
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 50%;
     padding: 20px;
     cursor: pointer;
-    animation: blink 1.5s infinite;
+    animation: pulse 1.5s infinite ease-in-out;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
+
+.play-icon:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-icon i {
+    font-size: 50px; /* Icon size */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+    }
+}
+
+
 
 @keyframes blink {
     0%, 100% {
