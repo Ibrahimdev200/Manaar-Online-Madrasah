@@ -480,8 +480,40 @@ hr{
 
 /* Video Container */
 .video-container {
-    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Adjust based on your design */
+    margin: 0 auto;
 }
+
+.video-container video {
+    width: 100%;
+    height: auto;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px; /* Adjust size as needed */
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 20px;
+    cursor: pointer;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
 
 .video-container iframe {
     width: 100%;
