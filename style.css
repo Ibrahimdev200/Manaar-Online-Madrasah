@@ -482,13 +482,14 @@ hr{
 .video-container {
     position: relative;
     width: 100%;
-    max-width: 800px; /* Adjust based on your design */
-    margin: 0 auto;
+    max-width: 800px; /* Adjust width as needed */
+    margin: auto;
+    overflow: hidden;
 }
 
-.video-container video {
+.video-placeholder {
     width: 100%;
-    height: auto;
+    display: block;
 }
 
 .play-icon {
@@ -525,6 +526,12 @@ hr{
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
     }
 }
+
+.video-content {
+    width: 100%;
+    display: none;
+}
+
 
 
 
