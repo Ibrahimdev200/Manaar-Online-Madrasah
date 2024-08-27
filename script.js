@@ -1,27 +1,30 @@
-// JavaScript to handle slide show and other interactions
+document.addEventListener("DOMContentLoaded", function () {
+    let slideIndex = 0;
+    showSlides();
 
-// JavaScript for Slideshow
-let slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    let i;
-    const slides = document.getElementsByClassName("slide");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 5000); // Change image every 5 seconds
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 5000); // Change slide every 5 seconds
-}
+});
 
 
 // Greeting Modal Interaction
-document.getElementById("close-greeting").addEventListener("click", function() {
-    document.getElementById("greeting-modal").style.display = "none";
+document.addEventListener('DOMContentLoaded', function () {
+    // Show the greeting screen for 4 seconds
+    setTimeout(function () {
+        document.getElementById('greeting-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+    }, 4000);
 });
 
+// JavaScript for YouTube video player interaction
 document.addEventListener('DOMContentLoaded', () => {
     const playButton = document.querySelector('.blinking-play');
     const iframe = document.getElementById('video-iframe');
@@ -44,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Event details pop-up for upcoming events
 document.addEventListener('DOMContentLoaded', () => {
     const eventItems = document.querySelectorAll('#upcoming-events li');
     const overlay = document.createElement('div');
@@ -54,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     eventPopup.className = 'event-popup';
     document.body.appendChild(eventPopup);
 
-    // Populate and show the event details in a pop-up
     function showEventDetails(eventName) {
         eventPopup.innerHTML = `
             <h3>${eventName}</h3>
@@ -64,29 +67,25 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.display = 'block';
         eventPopup.style.display = 'block';
 
-        // Close button event
         eventPopup.querySelector('.close-btn').addEventListener('click', () => {
             overlay.style.display = 'none';
             eventPopup.style.display = 'none';
         });
     }
 
-    // Click event for each event item to show more details
     eventItems.forEach(item => {
         item.addEventListener('click', () => {
             showEventDetails(item.textContent.trim());
         });
     });
 
-    // Click event to close the pop-up when clicking outside
     overlay.addEventListener('click', () => {
         overlay.style.display = 'none';
         eventPopup.style.display = 'none';
     });
 });
 
-
-
+// Academic calendar pop-up interaction
 document.addEventListener('DOMContentLoaded', () => {
     const calendarItems = document.querySelectorAll('#academic-calendar li');
     const overlay = document.createElement('div');
@@ -97,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     calendarPopup.className = 'calendar-popup';
     document.body.appendChild(calendarPopup);
 
-    // Function to show calendar event details in a pop-up
     function showCalendarDetails(eventName) {
         calendarPopup.innerHTML = `
             <h3>${eventName}</h3>
@@ -107,45 +105,37 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.display = 'block';
         calendarPopup.style.display = 'block';
 
-        // Close button event
         calendarPopup.querySelector('.close-btn').addEventListener('click', () => {
             overlay.style.display = 'none';
             calendarPopup.style.display = 'none';
         });
     }
 
-    // Click event for each calendar item to show more details
     calendarItems.forEach(item => {
         item.addEventListener('click', () => {
             showCalendarDetails(item.textContent.trim());
         });
     });
 
-    // Click event to close the pop-up when clicking outside
     overlay.addEventListener('click', () => {
         overlay.style.display = 'none';
         calendarPopup.style.display = 'none';
     });
 });
 
-
 // JavaScript for hamburger menu
 function updatemenu() {
     if (document.getElementById('responsive-menu').checked == true) {
-      document.getElementById('menu').style.borderBottomRightRadius = '0';
-      document.getElementById('menu').style.borderBottomLeftRadius = '0';
-    }else{
-      document.getElementById('menu').style.borderRadius = '10px';
+        document.getElementById('menu').style.borderBottomRightRadius = '0';
+        document.getElementById('menu').style.borderBottomLeftRadius = '0';
+    } else {
+        document.getElementById('menu').style.borderRadius = '10px';
     }
-  }
+}
 
-  
-
-
-  // contact
-  function showLoading() {
-    // Prevent the form from submitting immediately
-    event.preventDefault();
+// Function to handle contact form submission with a loading animation
+function showLoading(event) {
+    event.preventDefault(); // Prevent the form from submitting immediately
 
     // Hide the form and show the loading spinner
     document.getElementById('contact-form').style.display = 'none';
@@ -158,8 +148,7 @@ function updatemenu() {
     }, 2000);
 }
 
-
-
+// Scroll reveal for elements on the page
 const scrollElements = document.querySelectorAll('.scroll-reveal');
 
 const elementInView = (el, dividend = 1) => {
@@ -185,14 +174,53 @@ window.addEventListener('scroll', () => {
     handleScrollAnimation();
 });
 
+// Video play button interaction
+document.querySelector('.play-icon').addEventListener('click', function() {
+    var video = document.getElementById('myVideo');
+    video.style.display = 'block';  // Show the video
+    video.play();  // Start playing the video
+    this.style.display = 'none';  // Hide the play icon
+    document.querySelector('.video-placeholder').style.display = 'none';  // Hide the placeholder image
+});
 
-   
+/// Function to open the academic calendar modal
+function openCalendar() {
+    document.getElementById("calendarModal").style.display = "block";
+}
 
-    document.querySelector('.play-icon').addEventListener('click', function() {
-        var video = document.getElementById('myVideo');
-        video.style.display = 'block';  // Show the video
-        video.play();  // Start playing the video
-        this.style.display = 'none';  // Hide the play icon
-        document.querySelector('.video-placeholder').style.display = 'none';  // Hide the placeholder image
+// Function to close the academic calendar modal
+function closeCalendar() {
+    document.getElementById("calendarModal").style.display = "none";
+}
+
+// Function to open the upcoming events modal
+function openEvents() {
+    document.getElementById("eventsModal").style.display = "block";
+}
+
+// Function to close the upcoming events modal
+function closeEvents() {
+    document.getElementById("eventsModal").style.display = "none";
+}
+
+// Attach event listeners to ensure buttons can open the modals
+document.addEventListener("DOMContentLoaded", function () {
+    const calendarLinks = document.querySelectorAll('a[href="#academic-calendar"]');
+    const eventsLinks = document.querySelectorAll('a[href="#upcoming-events"]');
+
+    calendarLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            openCalendar();
+        });
     });
-    
+
+    eventsLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            openEvents();
+        });
+    });
+});
+
+

@@ -6,108 +6,311 @@ body {
     padding: 0;
 }
 
-/* Greeting Modal Styles */
-#greeting-modal {
+body, p {
+    text-align: justify;
+}
+
+/* Use the imported font for paragraph text */
+/* Apply the Roboto font to all paragraph elements */
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem; /* Adjust as needed */
+    line-height: 1.6; /* For better readability */
+    color: #333; /* A dark shade for good contrast */
+}
+
+
+h1 {
+    font-size: var(--h3-font-size); /* Use a CSS variable or directly set to h3 size */
+    font-family: Arial, sans-serif; /* Replace with your preferred font */
+}
+
+/* CSS for the Greeting Modal */
+
+/* Fullscreen overlay for greeting */
+#greeting-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background-color: #004d40; /* A calming dark green */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
-    opacity: 0;
-    animation: fadeIn 2s forwards;
+    z-index: 9999;
+    color: #fff; /* White text for contrast */
+    font-family: 'Roboto', sans-serif;
 }
 
+/* Style for the greeting content */
 .greeting-content {
-    background: #ffffff;
-    padding: 30px;
     text-align: center;
-    border-radius: 12px;
-    width: 400px;
-    transform: scale(0.8);
-    animation: scaleUp 0.6s forwards, floatUp 2s 0.5s ease-in-out infinite;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeInOut 4s ease-in-out forwards;
 }
 
-.greeting-header {
-    font-size: 28px;
-    color: #007bff;
-    margin-bottom: 15px;
-    animation: textGlow 1.5s ease-in-out infinite;
-}
-
-.greeting-text {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 20px;
-    animation: textFade 2s ease-in-out 0.5s forwards;
-}
-
-#greeting-modal button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-#greeting-modal button:hover {
-    background-color: #0056b3;
-}
-
-/* Keyframe Animations */
-@keyframes fadeIn {
+/* Animation for fading in and out */
+@keyframes fadeInOut {
     0% {
         opacity: 0;
     }
-    100% {
+    20% {
         opacity: 1;
     }
-}
-
-@keyframes scaleUp {
-    0% {
-        transform: scale(0.8);
+    80% {
+        opacity: 1;
     }
     100% {
-        transform: scale(1);
+        opacity: 0;
     }
 }
 
-@keyframes floatUp {
-    0%, 100% {
+#greeting-modal {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Initially hidden */
+    animation: fadeIn 1s ease-out forwards;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation for the greeting modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+#close-greeting {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#close-greeting:hover {
+    background-color: #e91e63;
+}
+
+/* Container for the rolling boxes */
+.rolling-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Styles for each rolling box */
+.rolling-boxes .box {
+    width: 20px;
+    height: 20px;
+    background-color: #2c3e50; /* Change this color to fit your theme */
+    margin: 0 5px;
+    border-radius: 50%;
+    animation: rolling 1.2s infinite ease-in-out;
+}
+
+/* Animation keyframes for rolling effect */
+@keyframes rolling {
+    0% {
         transform: translateY(0);
     }
     50% {
         transform: translateY(-10px);
     }
-}
-
-@keyframes textGlow {
-    0%, 100% {
-        color: #007bff;
-        text-shadow: 0 0 10px #007bff;
-    }
-    50% {
-        color: #0056b3;
-        text-shadow: 0 0 20px #0056b3;
-    }
-}
-
-@keyframes textFade {
-    0% {
-        opacity: 0;
-    }
     100% {
-        opacity: 1;
+        transform: translateY(0);
     }
 }
+
+/* Delay for each box to create rolling effect */
+.rolling-boxes .box:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.rolling-boxes .box:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+/* Slideshow Container Styles */
+/* Slideshow Container Styles */
+.slideshow-container {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Slide Image Styles */
+.slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Slide Content (Text Overlay) */
+.slide-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Responsive Design for Different Screen Sizes */
+@media (max-width: 768px) {
+    .slide-text {
+        font-size: 14px;
+        padding: 8px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-text {
+        font-size: 12px;
+        padding: 5px;
+        width: 75%;
+    }
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide {
+    display: none;
+    position: relative;
+}
+
+.slide-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.slide-text-overlay {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide-text-overlay h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.slide-text-overlay p {
+    font-size: 1em;
+    color: whitesmoke;
+}
+
+.slideshow-navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.prev, .next {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+    user-select: none;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dots-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.dot.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Responsive Design for Slideshow */
+@media only screen and (max-width: 768px) {
+    .slide-text-overlay {
+        width: 90%;
+        bottom: 20px;
+    }
+
+    .prev, .next {
+        padding: 8px;
+    }
+}
+
+
 
 /* Header Styles */
 header {
@@ -158,12 +361,17 @@ nav ul li a {
     transition: background-color 0.3s;
 }
 
-nav ul li:hover {
-    background-color: #0056b3;
+
+/* Hover state styles for the menu items */
+nav ul li a:hover {
+    color: blue; /* Change text color to blue on hover */
 }
 
-nav ul li:hover .submenu {
-    display: block;
+/* Active state (when clicked) styles for the menu items */
+nav ul li a.active, 
+nav ul li a:focus {
+    background-color: green; /* Background color changes to green when active */
+    color: white; /* Text color changes to white when active */
 }
 
 .submenu {
@@ -287,6 +495,90 @@ nav ul li:hover .submenu {
     background: #F2F2F2;
     color: #444444;
 }
+
+/* Style the modal background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+   
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with opacity */
+    animation: fadeIn 0.5s ease-in-out; /* Fade in animation */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #ffffff;
+    margin: 15% auto; /* Centered */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    width: 80%; /* Adjust as needed */
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Add shadow */
+    animation: slideIn 0.6s ease-in-out; /* Slide in animation */
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Base styles for modal */
+
+
+/* Animation for the modal background */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animation for the modal content */
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Style for the headings and content inside modal */
+.modal-content h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.modal-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    color: #555;
+}
+
+.modal-content ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-content ul li:last-child {
+    border-bottom: none;
+}
+
 
 /* Responsive Styles */
 @media screen and (max-width: 1108px) {
@@ -477,6 +769,39 @@ hr{
     line-height: 1.6;
     font-family: 'Arial', sans-serif;
 }
+
+/* Intro Section Styles */
+.intro {
+    background-color: #f8f9fa; /* Light background color for better contrast */
+    padding: 40px 20px; /* Increased padding for more breathing space */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px auto; /* Centering and spacing the section */
+    max-width: 800px; /* Maximum width for readability */
+    text-align: center; /* Centered text for a clean look */
+}
+
+.intro-content h2 {
+    font-family: 'Roboto', sans-serif; /* Consistent font family */
+    font-size: 2em; /* Larger font size for the heading */
+    color: #343a40; /* Dark color for better readability */
+    margin-bottom: 10px; /* Space between heading and HR */
+}
+
+.intro-content hr {
+    width: 60px; /* Shorter HR for a stylish look */
+    border: 2px solid #6c757d; /* Darker HR color for contrast */
+    margin: 10px auto; /* Centered and spaced HR */
+}
+
+.intro-content p {
+    font-family: 'Roboto', sans-serif; /* Consistent font family */
+    font-size: 1.1em; /* Slightly larger text for better readability */
+    line-height: 1.6; /* Increased line height for improved readability */
+    color: #495057; /* Gray color for a softer text appearance */
+    margin-top: 20px; /* Space above the paragraph */
+}
+
 
 /* Video Container */
 .video-container {
@@ -1151,6 +1476,9 @@ footer {
     }
 }
 
+.arabic{
+    font-size: 17px;
+}
 
 /* Mission, Vision, Philosophy Section */
 /* Default styling for .mission-vision-philosophy section */
@@ -1267,6 +1595,7 @@ footer {
     background-color: #f8f9fa;
     padding: 60px 20px;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .section-header {
@@ -1317,8 +1646,12 @@ footer {
 .team-post {
     font-size: 16px;
     color: #666;
+    text-align:center;
 }
 
+.office{
+    font-size: 10px;
+}
 
 /* Footer Section */
 footer {

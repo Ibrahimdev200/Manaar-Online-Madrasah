@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOM Online - Programs</title>
+    <title>MOM Online</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="image/logo2.jpeg" type="image/png">
 </head>
 <body>
+    <!-- Add this in the body of your index.html -->
+    <div id="greeting-screen">
+        <div class="greeting-content">
+            <h1>Assalamu 'alaikum warahmatullahi wabarakātuh</h1>
+            <h2>Welcome to Manaar Online Madrasah</h2>
+            <!-- Add rolling boxes under the greeting messages -->
+            <div class="rolling-boxes">
+                <div class="box">الله احد</div>
+                <div class="box">الله احد</div>
+                <div class="box">الله احد</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content of index.html -->
+    <div id="main-content" style="display: none;">
+        <!-- Your existing index.html content goes here -->
+    </div>
 
     <!-- Header Section -->
     <header>
@@ -37,6 +56,14 @@
                         <li><a href="#">Staff Portal</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a class="dropdown-arrow" href="#">More</a>
+                    <ul class="sub-menus">
+                        <li><a href="#" onclick="openCalendar()">Academic Calendar</a></li>
+                        <li><a href="#" onclick="openEvents()">Upcoming Events</a></li>
+                    </ul>
+                </li>
+
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -96,7 +123,33 @@
             </div>
         </div>
     </section>
+ <!-- Academic Calendar Modal -->
+<div id="calendarModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCalendar()">&times;</span>
+        <h2>Academic Calendar</h2>
+        <ul>
+            <li>Orientation Day - September 5</li>
+            <li>First Day of Classes - September 8</li>
+            <li>Mid-Semester Break - October 15 to October 20</li>
+            <li>End of Semester Exams - December 10 to December 20</li>
+            <li>Christmas Break - December 21 to January 3</li>
+        </ul>
+    </div>
+</div>
 
+<!-- Upcoming Events Modal -->
+<div id="eventsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEvents()">&times;</span>
+        <h2>Upcoming Events</h2>
+        <ul>
+            <li>Quran Recitation Competition - September 12</li>
+            <li>Islamic New Year Celebration - October 1</li>
+            <li>Parent-Teacher Meeting - November 15</li>
+        </ul>
+    </div>
+</div>
      <!-- Footer Section -->
      <footer>
         <div class="footer-content">
@@ -115,6 +168,9 @@
                 <p>&copy; Manaar Online Madrasah. All rights reserved.</p>
             </div>
         </div>
+
+       
+
     </footer>
 
     <!-- Scripts -->
