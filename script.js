@@ -107,19 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function scrollUp() {
-    window.scrollBy({
-        top: -100, // Adjust the scroll amount
-        behavior: 'smooth'
-    });
-}
 
-function scrollDown() {
-    window.scrollBy({
-        top: 100, // Adjust the scroll amount
-        behavior: 'smooth'
-    });
-}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     var currentLocation = window.location.pathname;
@@ -173,55 +162,3 @@ window.onclick = function(event) {
         volunteerModal.style.display = "none";
     }
 }
-document.addEventListener('DOMContentLoaded', function () {
-    // Function to update the menu state
-    function updatemenu() {
-        // Get all menu items
-        const menuItems = document.querySelectorAll('#menu ul li a');
-        
-        // Remove active class from all menu items
-        menuItems.forEach(item => item.classList.remove('active'));
-        
-        // Get current page URL
-        const currentPage = window.location.pathname.split('/').pop();
-        
-        // Add active class to the menu item that matches the current page
-        menuItems.forEach(item => {
-            if (item.getAttribute('href') === currentPage) {
-                item.classList.add('active');
-            }
-        });
-    }
-
-    // Call the function to set the initial state of the menu
-    updatemenu();
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    var menuItems = document.querySelectorAll(".has-submenu > a");
-
-    menuItems.forEach(function(item) {
-        item.addEventListener("click", function(event) {
-            event.preventDefault();
-            var submenu = this.nextElementSibling;
-
-            // Toggle submenu visibility
-            if (submenu.style.display === "block") {
-                submenu.style.display = "none";
-            } else {
-                submenu.style.display = "block";
-            }
-        });
-    });
-
-    // Optional: Close submenu when clicking outside
-    document.addEventListener("click", function(event) {
-        if (!event.target.closest(".main-menu")) {
-            document.querySelectorAll(".submenu").forEach(function(submenu) {
-                submenu.style.display = "none";
-            });
-        }
-    });
-});
