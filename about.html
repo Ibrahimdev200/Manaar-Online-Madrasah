@@ -10,64 +10,43 @@
     <link rel="icon" href="image/logo2.jpeg" type="image/png">
 </head>
 <body>
-    <!-- Add this in the body of your index.html -->
-    <div id="greeting-screen">
-        <div class="greeting-content">
-            <h1>Assalamu 'alaikum warahmatullahi wabarakātuh</h1>
-            <h2>Welcome to Manaar Online Madrasah</h2>
-            <!-- Add rolling boxes under the greeting messages -->
-            <div class="rolling-boxes">
-                <div class="box">الله احد</div>
-                <div class="box">الله احد</div>
-                <div class="box">الله احد</div>
-            </div>
-        </div>
-    </div>
+    
 
-    <!-- Main content of index.html -->
-    <div id="main-content" style="display: none;">
-        <!-- Your existing index.html content goes here -->
-    </div>
 
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="image/logo1-removebg-preview.png" alt="Madrasah Logo" class="logo-img">
+            <img src="image/logo new.png" alt="logo" class="logo-img">
             <span class="logo-text">Manaar Online Madrasah</span>
         </div>
         <nav id="menu">
-            <input type="checkbox" id="responsive-menu" onclick="updatemenu()">
-            <label for="responsive-menu"></label>
+            <input type="checkbox" id="responsive-menu" onclick="updatemenu()" class="check">
+            <label for="responsive-menu" class="menu-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html" class="present">About</a></li>
                 <li><a href="programs.html">Programs</a></li>
-                <li class="apply-menu">
-                    <a class="dropdown-arrow" href="#">Apply</a>
-                    <ul class="sub-menus">
-                        <li><a href="#">Apply Online</a></li>
-                        <li><a href="download-form.html">Download Form</a></li>
-                    </ul>
-                </li>
+
                 <li>
-                    <a class="dropdown-arrow" href="#">Login</a>
-                    <ul class="sub-menus">
-                        <li><a href="#">Student Portal</a></li>
-                        <li><a href="#">Staff Portal</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="dropdown-arrow" href="#">More</a>
-                    <ul class="sub-menus">
-                        <li><a href="#academic-calendar" onclick="openCalendar()">Academic Calendar</a></li>
-                        <li><a href="#upcoming-events" onclick="openEvents()">Upcoming Events</a></li>
-                    </ul>
+                    <a class="dropdown-arrow" href="https://demo.lerafinedu.com.ng/private/apply.php">Apply</a>
+                   
                 </li>
 
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="download-form.html">Get-Form</a></li>
+                <li>
+                    <a class="dropdown-arrow" href="https://demo.lerafinedu.com.ng/private/login.php">Login</a>
+                   
+                </li>
+               
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
         </nav>
     </header>
+
 
  
    
@@ -76,7 +55,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Welcome to Manaar Online Madrasah</h2>
+                    <h2>Welcome to Manaar <span>Online Madrasah</span> </h2>
                     <p>Founded in 2024, our Madrasah has a rich history of providing exceptional education to students of all ages. As our Manaar Madrasah flourished, we received an overwhelming number of requests from our patrons and well-wishers abroad, seeking a reliable online platform for Islamic education. Recognizing the growing demand and the potential of digital learning, we embarked on a mission to create Manaar Online Madrasah.</p>
                 </div>
                 
@@ -108,7 +87,7 @@
     <!-- Staff Images Section -->
     <section id="team">
         <div class="container">
-            <h2 class="section-header">Meet Our Team</h2>
+            <h2 class="section-header">Meet Our Board OF <span>Director's</span></h2>
             <div class="team-container">
                 <div class="team-member">
                     <img src="image/ceo.png" alt="Team Member 1" class="team-img">
@@ -121,7 +100,7 @@
                 <div class="team-member">
                     <img src="image/assist.png" alt="Team Member 2" class="team-img">
                     <div class="team-info">
-                        <h3 class="team-name"><span class="arabic">إمام سني كي يوسف</span><br>Imām Sanni Kay Yūsuf</h3>
+                        <h3 class="team-name"><span class="arabic">الإمام ثاني كي يوسف</span><br>Imām Sanni Kay Yūsuf</h3>
                         <p class="team-post">Secretary, Board of Governors</p>
                         <p class="team-post office">B.ED, Guidance & Counselling; M.ED, Educational Administration & Planning; M.ED, Counselling Psychology (in view)</p>
 
@@ -164,29 +143,63 @@
         </ul>
     </div>
 </div>
+<!-- Upcoming Events Modal -->
+<div id="eventsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('eventsModal')">&times;</span>
+        <h2>Upcoming Events</h2>
+        <ul>
+            <li>✔ Quran Recitation Competition - September 12</li>
+            <li>✔ Islamic New Year Celebration - October 1</li>
+            <li>✔ Parent-Teacher Meeting - November 15</li>
+        </ul>
+    </div>
+</div>
 
+<!-- Academic Calendar Modal -->
+<div id="calendarModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('calendarModal')">&times;</span>
+        <h2>Academic Calendar</h2>
+        <ul>
+            <li>✔ Orientation Day - September 5</li>
+            <li>✔ First Day of Classes - September 8</li>
+            <li>✔ Mid-Semester Break - October 15 to October 20</li>
+            <li>✔ End of Semester Exams - December 10 to December 20</li>
+            <li>✔ Christmas Break - December 21 to January 3</li>
+        </ul>
+    </div>
+</div>
  <!-- Footer Section -->
  <footer>
-    <div class="footer-content">
-        <!-- Quick Links Section -->
-        <div class="footer-section quick-links">
-            <ul>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Volunteer</a></li>
-                <li><a href="#">visit Manaar School</a></li>
-                <li><a href="#">Career</a></li>
-            </ul>
-        </div>
-        
-        <!-- Copyright Section -->
-        <div class="footer-bottom">
-            <p>&copy; Manaar Online Madrasah. All rights reserved.</p>
-        </div>
-    </div>
-
-
-   
+    <p>&copy; 2024 Manaar Online Madrasah. All rights reserved.</p>
+    <ul>
+        <li><a href="https://manaarschools.com/">✔ MANAAR-UL-HUDA INT'L SCHOOLS Website </a></li>
+        <li><a href="#" id="job-link">✔ JOB</a></li>
+        <li><a href="#" id="volunteer-link">✔ Volunteer</a></li>
+        <li><a href="contact.html">✔ Contact Us</a></li>
+        <li><a href="programs.html">✔ Programs</a></li>
+    </ul>
 </footer>
+
+<!-- Job Popup Modal -->
+<div id="jobModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="job-close">&times;</span>
+        <h2>Thank You for Your Interest</h2>
+        <p>We appreciate your willingness to join us. Unfortunately, we do not have any open positions at the moment. If you wish we can put you o our contact list, please visit our <a href="contact.html"> Contact Us</a> page.</p>
+    </div>
+</div>
+
+<!-- Volunteer Popup Modal -->
+<div id="volunteerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="volunteer-close">&times;</span>
+        <h2>Thank You for Volunteering</h2>
+        <p>We appreciate your interest in volunteering. Please fill out our contact form  <a href="contact.html"> Contact Us</a> page.</p>and specify "volunteer" as your purpose message. One of our team members will reach out to you soon.</p>
+    </div>
+</div>
+
 
 <!-- Scripts -->
 <script src="script.js"></script>

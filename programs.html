@@ -10,61 +10,39 @@
     <link rel="icon" href="image/logo2.jpeg" type="image/png">
 </head>
 <body>
-    <!-- Add this in the body of your index.html -->
-    <div id="greeting-screen">
-        <div class="greeting-content">
-            <h1>Assalamu 'alaikum warahmatullahi wabarakātuh</h1>
-            <h2>Welcome to Manaar Online Madrasah</h2>
-            <!-- Add rolling boxes under the greeting messages -->
-            <div class="rolling-boxes">
-                <div class="box">الله احد</div>
-                <div class="box">الله احد</div>
-                <div class="box">الله احد</div>
-            </div>
-        </div>
-    </div>
+    
 
-    <!-- Main content of index.html -->
-    <div id="main-content" style="display: none;">
-        <!-- Your existing index.html content goes here -->
-    </div>
 
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="image/logo1-removebg-preview.png" alt="Madrasah Logo" class="logo-img">
+            <img src="image/logo new.png" alt="logo" class="logo-img">
             <span class="logo-text">Manaar Online Madrasah</span>
         </div>
         <nav id="menu">
-            <input type="checkbox" id="responsive-menu" onclick="updatemenu()">
-            <label for="responsive-menu"></label>
+            <input type="checkbox" id="responsive-menu" onclick="updatemenu()" class="check">
+            <label for="responsive-menu" class="menu-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" >Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="programs.html">Programs</a></li>
-                <li class="apply-menu">
-                    <a class="dropdown-arrow" href="#">Apply</a>
-                    <ul class="sub-menus">
-                        <li><a href="#">Apply Online</a></li>
-                        <li><a href="download-form.html">Download Form</a></li>
-                    </ul>
-                </li>
+                <li><a href="programs.html" class="present">Programs</a></li>
+
                 <li>
-                    <a class="dropdown-arrow" href="#">Login</a>
-                    <ul class="sub-menus">
-                        <li><a href="#">Student Portal</a></li>
-                        <li><a href="#">Staff Portal</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="dropdown-arrow" href="#">More</a>
-                    <ul class="sub-menus">
-                        <li><a href="#" onclick="openCalendar()">Academic Calendar</a></li>
-                        <li><a href="#" onclick="openEvents()">Upcoming Events</a></li>
-                    </ul>
+                    <a class="dropdown-arrow" href="https://demo.lerafinedu.com.ng/private/apply.php">Apply</a>
+                   
                 </li>
 
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="download-form.html">Get-Form</a></li>
+                <li>
+                    <a class="dropdown-arrow" href="https://demo.lerafinedu.com.ng/private/login.php">Login</a>
+                   
+                </li>
+               
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -152,26 +130,33 @@
 </div>
      <!-- Footer Section -->
      <footer>
-        <div class="footer-content">
-            <!-- Quick Links Section -->
-            <div class="footer-section quick-links">
-                <ul>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Volunteer</a></li>
-                    <li><a href="#">visit Manaar School</a></li>
-                    <li><a href="#">Career</a></li>
-                </ul>
-            </div>
-            
-            <!-- Copyright Section -->
-            <div class="footer-bottom">
-                <p>&copy; Manaar Online Madrasah. All rights reserved.</p>
-            </div>
-        </div>
-
-       
-
+        <p>&copy; 2024 Manaar Online Madrasah. All rights reserved.</p>
+        <ul>
+            <li><a href="https://manaarschools.com/">✔ MANAAR-UL-HUDA INT'L SCHOOLS Website </a></li>
+            <li><a href="#" id="job-link">✔ JOB</a></li>
+            <li><a href="#" id="volunteer-link">✔ Volunteer</a></li>
+            <li><a href="contact.html">✔ Contact Us</a></li>
+            <li><a href="programs.html">✔ Programs</a></li>
+        </ul>
     </footer>
+    
+    <!-- Job Popup Modal -->
+    <div id="jobModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="job-close">&times;</span>
+            <h2>Thank You for Your Interest</h2>
+            <p>We appreciate your willingness to join us. Unfortunately, we do not have any open positions at the moment. If you wish we can put you o our contact list, please visit our <a href="contact.html"> Contact Us</a> page.</p>
+        </div>
+    </div>
+    
+    <!-- Volunteer Popup Modal -->
+    <div id="volunteerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="volunteer-close">&times;</span>
+            <h2>Thank You for Volunteering</h2>
+            <p>We appreciate your interest in volunteering. Please fill out our contact form  <a href="contact.html"> Contact Us</a> page.</p>and specify "volunteer" as your purpose message. One of our team members will reach out to you soon.</p>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>
