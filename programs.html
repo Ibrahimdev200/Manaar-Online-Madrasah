@@ -10,42 +10,43 @@
     <link rel="icon" href="image/logo2.jpeg" type="image/png">
 </head>
 <body>
-    
-
 
     <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <img src="image/logo2-removebg-preview.png" alt="logo" class="logo-img">
-            <span class="logo-text">Manaar Online Madrasah</span>
-        </div>
-        <nav id="menu">
-            <input type="checkbox" id="responsive-menu" onclick="updatemenu()" class="check">
-            <label for="responsive-menu" class="menu-icon">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </label>
-            <ul>
-                <li><a href="index.html" >Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="programs.html" class="present">Programs</a></li>
+   <!-- Header Section -->
+<header>
+    <div class="logo">
+        <img src="image/logo2-removebg-preview.png" alt="logo" class="logo-img">
+        <span class="logo-text">Manaar Online Madrasah</span>
+    </div>
 
-                <li>
-                    <a class="dropdown-arrow" href="https://demo.lerafinedu.com.ng/private/apply.php">Apply</a>
-                   
-                </li>
+    <input type="checkbox" id="responsive-menu" class="check">
+    <label for="responsive-menu" class="menu-icon">
+        <span class="bar1"></span>
+        <span class="bar2"></span>
+        <span class="bar3"></span>
+    </label>
 
-                <li><a href="download-form.html">Get-Form</a></li>
-                <li>
-                    <a class="dropdown-arrow" href="https://demo.lerafinedu.com.ng/private/login.php">Login</a>
-                   
-                </li>
-               
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul class="menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html" class="active">Programs</a></li>
+            <li><a href="#">Apply</a></li>
+            <li><a href="download-form.html">Get-Form</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    // Responsive menu toggle function
+    function updatemenu() {
+        var check = document.getElementById('responsive-menu');
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('open');
+    }
+</script>
 
     <!-- Programs Section -->
     <section id="programs">

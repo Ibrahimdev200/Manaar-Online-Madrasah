@@ -10,42 +10,45 @@
     <link rel="icon" href="image/logo2.jpeg" type="image/png">
 </head>
 <body>
-    
-
 
     <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <img src="image/logo2-removebg-preview.png" alt="logo" class="logo-img">
-            <span class="logo-text">Manaar Online Madrasah</span>
-        </div>
-        <nav id="menu">
-            <input type="checkbox" id="responsive-menu" onclick="updatemenu()" class="check">
-            <label for="responsive-menu" class="menu-icon">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </label>
-            <ul>
-                <li><a href="index.html" class="present">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="programs.html">Programs</a></li>
+   <!-- Header Section -->
+<header>
+    <div class="logo">
+        <img src="image/logo2-removebg-preview.png" alt="logo" class="logo-img">
+        <span class="logo-text">Manaar Online Madrasah</span>
+    </div>
 
-                <li>
-                    <a class="dropdown-arrow" href="https://demo.lerafinedu.com.ng/private/apply.php">Apply</a>
-                   
-                </li>
+    <input type="checkbox" id="responsive-menu" class="check">
+    <label for="responsive-menu" class="menu-icon">
+        <span class="bar1"></span>
+        <span class="bar2"></span>
+        <span class="bar3"></span>
+    </label>
 
-                <li><a href="download-form.html">Get-Form</a></li>
-                <li>
-                    <a class="dropdown-arrow" href="https://demo.lerafinedu.com.ng/private/login.php">Login</a>
-                   
-                </li>
-               
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul class="menu-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="#">Apply</a></li>
+            <li><a href="download-form.html">Get-Form</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<script>
+    // Responsive menu toggle function
+    function updatemenu() {
+        var check = document.getElementById('responsive-menu');
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('open');
+    }
+</script>
+
+
+
 
     <section class="carousel-section">
         <div class="carousel-images">
@@ -57,7 +60,7 @@
                 <img src="image/—Pngtree—happy muslim kids vector_9057753.png" alt="Quran Image 1" class="main-image active">
                 <div class="quote-overlay active"> Al-Ankabut (29:69): "And those who strive for Us - We will surely guide them to Our ways. And indeed, Allah is with the doers of good."</div>
                 <img src="image/pexels-konevi-2236674.jpg" alt="Quran Image 1" class="main-image active">
-                <div class="quote-overlay active">:"Surah Al-Alaq (96:1-5): "Recite in the name of your Lord who created. Created man from a clinging substance. Recite, and your Lord is the most Generous - Who taught by the pen - Taught man that which he knew not."</div>
+                <div class="quote-overlay active">Surah Al-Alaq (96:1-5): "Recite in the name of your Lord who created. Created man from a clinging substance. Recite, and your Lord is the most Generous - Who taught by the pen - Taught man that which he knew not."</div>
                 <img src="image/group-muslim-students-using-mobile-phones.jpg" alt="Quran Image 1" class="main-image active">
                 <div class="quote-overlay active">Surah Al-Mujadila (58:11):
 
@@ -69,7 +72,7 @@
     <div class="carousel-text">
         <h2>Assalamu 'alaikum warahmatullahi wabarakātuh Welcome to <span>Manaar Online Madrasah</span></h2>
         <div class="text-wrapper">
-            <p class="active">Our Packages</p>
+           
             <button class="btn request-demo"><a href="contact.html" class="btn">Talk to a Tutor</a> </button>
         </div>
     </div>
@@ -106,10 +109,12 @@
     </div>
     <div class="video-container">
         <div class="video-wrapper">
+            <!-- Video element with a poster image -->
             <video id="demo-video" width="100%" height="auto" poster="image/abdullah-arif-Dxi6KbpvUgA-unsplash.jpg" controls>
-                <source src="video/The Quran Kids _ Short Film _ Inspirational.mp4" type="video/mp4">
+                <source src="video/The-Quran-Kids-Short-Film-Inspirational.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <!-- Play button image overlay -->
             <div class="play-button" id="play-button"></div>
         </div>
     </div>
@@ -131,7 +136,8 @@
     <div class="rounded-image-container">
         <img src="image/Desk calendar with marked dates 3d cartoon style icon.jpg" alt="Rounded Animated Image" class="rounded-image">
     </div>
-
+    
+    
     <!-- Academic Calendar Section -->
     <section id="academic-calendar">
         <h2>Academic Calendar</h2>
@@ -140,7 +146,7 @@
             <li>✔ First Day of Classes - September 8</li>
             <li>✔ Mid-Semester Break - October 15 to October 20</li>
             <li>✔ End of Semester Exams - December 10 to December 20</li>
-            <li>✔ Christmas Break - December 21 to January 3</li>
+            
         </ul>
         <button onclick="openCalendar()">View Full Calendar</button>
     </section>
@@ -288,5 +294,4 @@
     <!-- Scripts -->
     <script src="script.js"></script>
 </body>
-
 </html>

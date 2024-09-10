@@ -21,44 +21,31 @@ body {
     font-weight: bolder;
  }
 
+ .check{display: none;}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* General Styling */
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Header Section */
+/* Header Styles */
 header {
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 10px 30px;
+    transition: background-color 0.3s ease;
+   
 }
 
-/* Logo Styling */
+header.sticky {
+    background-color: #222; /* Slightly darker when scrolling */
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -70,93 +57,134 @@ header {
 }
 
 .logo-text {
-    font-size: 1.5em;
+    font-size: 1.6em;
     font-weight: bold;
-    color: #fff;
 }
 
 /* Navigation Menu */
-nav {
-    position: relative;
-}
-
-ul.menu-links {
-    display: flex;
+nav ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    display: flex;
 }
 
-ul.menu-links li {
-    margin-left: 20px;
+nav ul li {
+    margin: 0 15px;
 }
 
-ul.menu-links li a {
+nav ul li a {
+    color: #fff;
     text-decoration: none;
-    color: white;
-    padding: 10px 15px;
-    transition: background 0.3s ease;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
 }
 
-ul.menu-links li a:hover {
-    background-color: #4CAF50;
-    border-radius: 5px;
+nav ul li a:hover {
+    color: #f0a500;
 }
 
-/* Responsive Hamburger Menu */
+/* Hamburger Menu Icon */
 .menu-icon {
     display: none;
     flex-direction: column;
     cursor: pointer;
 }
 
-.bar {
+.menu-icon span {
     width: 25px;
     height: 3px;
     background-color: #fff;
-    margin: 5px;
+    margin: 4px 0;
     transition: 0.4s;
 }
 
-.check:checked ~ ul {
-    display: block;
+.active{
+    background-color: green;
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
 }
 
-nav ul {
-    display: flex;
-}
-
+/* Mobile and Tablet Styles */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        display: none;
-        width: 100%;
-        background-color: #333;
-        position: absolute;
-        top: 100%;
-        left: 0;
-    }
-
-    nav.open ul {
-        display: block;
-    }
-
+    /* Show hamburger menu on mobile */
     .menu-icon {
         display: flex;
     }
 
-    ul.menu-links li {
-        margin: 0;
-        text-align: center;
-        border-bottom: 1px solid #444;
+    nav ul {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        height: 100vh;
+        width: 100%;
+        background-color: #222;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.5s ease;
     }
 
-    ul.menu-links li a {
-        padding: 15px;
-        width: 100%;
-        display: block;
+    nav ul li {
+        margin: 20px 0;
+    }
+
+    nav ul li a {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    /* When hamburger menu is checked */
+    input[type="checkbox"]:checked ~ nav ul {
+        left: 0;
+    }
+
+    /* Hamburger icon transformation */
+    input[type="checkbox"]:checked ~ label .bar1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    input[type="checkbox"]:checked ~ label .bar2 {
+        opacity: 0;
+    }
+
+    input[type="checkbox"]:checked ~ label .bar3 {
+        transform: rotate(45deg) translate(-5px, -6px);
     }
 }
+
+/* Tablet adjustments (larger mobile devices) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .logo-img {
+        height: 45px;
+    }
+
+    .logo-text {
+        font-size: 1.4em;
+    }
+
+    nav ul li a {
+        font-size: 1.3em;
+    }
+}
+
+/* Mobile Phone adjustments */
+@media (max-width: 480px) {
+    .logo-img {
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 1.2em;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+    }
+}
+
+
+
+
 
 
 
@@ -174,26 +202,11 @@ span{
 }
 /* Other Section Styles */
 /* Carousel Section */
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
 h2 {
     color: #333;
 }
 
-/* Carousel Section */
-/* Carousel Section */
-/* General Reset and Box-Sizing */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
 /* Carousel Section Styling */
 .carousel-section {
@@ -202,6 +215,7 @@ h2 {
     align-items: center;
     padding: 40px 20px;
     background-color: #f9f9f9;
+    margin-top: 3rem;
 }
 
 .carousel-images {
@@ -242,6 +256,7 @@ h2 {
     opacity: 0;
     width: calc(100% - 40px);
     text-align: left;
+    padding-top: 18rem;
 }
 
 .quote-overlay.active {
@@ -470,6 +485,7 @@ h2 {
     padding: 50px 20px;
     background-color: #f7f7f7;
     text-align: center;
+    margin-top: 2rem;
 }
 
 .about-section h2 {
@@ -514,6 +530,7 @@ h2 {
     padding: 50px 20px;
     background-color: #f7f7f7;
     text-align: center;
+    margin-top: 1.5rem;
 }
 
 .main-header {
@@ -730,17 +747,22 @@ img {
     padding: 50px 20px;
     background-color: #f7f7f7; /* Light background for the section */
     text-align: center;
+    margin-bottom: 7rem;
 }
 
 .main-header {
     font-size: 2.5rem;
     margin-bottom: 30px;
+    margin-top: 1.5rem;
 }
 
 .form-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    margin-top: 7rem;
+    margin-bottom: 2rem;
+    
 }
 
 .form-card {
@@ -837,92 +859,69 @@ img {
 }
 
 /* Styling for the video section */
+/* General Styles */
 .video-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
-    background-color: #f9f9f9; /* Light background for better contrast */
-    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
 }
 
 .text-container {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.text-container h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
+.text-container h2, .text-container h3 {
+    margin: 10px 0;
 }
 
-.text-container h3 {
-    font-size: 1.5rem;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.text-container p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.6;
-    max-width: 600px; /* Restrict width for better readability */
-    margin: 0 auto;
-}
-
+/* Video Container */
 .video-container {
     position: relative;
-    max-width: 800px; /* Restrict width for better layout */
-    width: 100%;
+    width: 80%;
+    max-width: 800px;
 }
 
 .video-wrapper {
     position: relative;
+}
+
+#demo-video {
     width: 100%;
+    height: auto;
 }
 
-video {
-    border-radius: 8px; /* Rounded corners for the video */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
+/* Play Button */
 .play-button {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 60px;
-    height: 60px;
-    background-image: url('image/play-icon.png'); /* Custom play button image */
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background-image: url('image/play.png'); /* Add your play button image here */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transform: translate(-50%, -50%);
     cursor: pointer;
-    z-index: 10;
+    z-index: 2;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
 }
 
-/* Hide play button when video is playing */
-video:playing + .play-button {
-    display: none;
+.play-button:hover {
+    opacity: 1;
 }
 
-/* Responsive design adjustments */
-@media (max-width: 768px) {
-    .text-container h2 {
-        font-size: 1.5rem;
-    }
+/* Hide the native video controls when not playing */
+#demo-video {
+    opacity: 1;
+}
 
-    .text-container h3 {
-        font-size: 1.2rem;
-    }
-
-    .text-container p {
-        font-size: 0.9rem;
-    }
-
-    .video-container {
-        max-width: 100%;
-    }
+#demo-video.playing {
+    opacity: 1; /* Keep video visible when playing */
 }
 
 
@@ -1353,6 +1352,7 @@ button:hover {
 .about-section {
     padding: 60px 0;
     background-color: #f4f4f4; /* Light gray background */
+    
 }
 
 .about-content {
@@ -1363,6 +1363,7 @@ button:hover {
     font-size: 2.5rem;
     color: #333;
     margin-bottom: 20px;
+   
 }
 
 .about-text p {

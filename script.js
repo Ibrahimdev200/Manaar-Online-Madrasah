@@ -107,19 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function scrollUp() {
-    window.scrollBy({
-        top: -100, // Adjust the scroll amount
-        behavior: 'smooth'
-    });
-}
 
-function scrollDown() {
-    window.scrollBy({
-        top: 100, // Adjust the scroll amount
-        behavior: 'smooth'
-    });
-}
 
 document.addEventListener('DOMContentLoaded', function() {
     var currentLocation = window.location.pathname;
@@ -173,55 +161,34 @@ window.onclick = function(event) {
         volunteerModal.style.display = "none";
     }
 }
-document.addEventListener('DOMContentLoaded', function () {
-    // Function to update the menu state
-    function updatemenu() {
-        // Get all menu items
-        const menuItems = document.querySelectorAll('#menu ul li a');
-        
-        // Remove active class from all menu items
-        menuItems.forEach(item => item.classList.remove('active'));
-        
-        // Get current page URL
-        const currentPage = window.location.pathname.split('/').pop();
-        
-        // Add active class to the menu item that matches the current page
-        menuItems.forEach(item => {
-            if (item.getAttribute('href') === currentPage) {
-                item.classList.add('active');
-            }
-        });
+
+window.addEventListener('scroll', function () {
+    const header = document.querySelector('header');
+    header.classList.toggle('sticky', window.scrollY > 50);
+});
+
+
+const playButton = document.getElementById('play-button');
+const video = document.getElementById('demo-video');
+
+// When the play button is clicked
+playButton.addEventListener('click', function () {
+    // Check if the video is paused
+    if (video.paused) {
+        video.play(); // Play the video
+        playButton.style.display = 'none'; // Hide the play button
     }
+});
 
-    // Call the function to set the initial state of the menu
-    updatemenu();
+// Optionally hide play button when the video is played by the controls
+video.addEventListener('play', function () {
+    playButton.style.display = 'none'; // Hide the play button when video starts
+});
+
+// Show the play button again when the video is paused
+video.addEventListener('pause', function () {
+    playButton.style.display = 'block'; // Show the play button if the video is paused
 });
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    var menuItems = document.querySelectorAll(".has-submenu > a");
-
-    menuItems.forEach(function(item) {
-        item.addEventListener("click", function(event) {
-            event.preventDefault();
-            var submenu = this.nextElementSibling;
-
-            // Toggle submenu visibility
-            if (submenu.style.display === "block") {
-                submenu.style.display = "none";
-            } else {
-                submenu.style.display = "block";
-            }
-        });
-    });
-
-    // Optional: Close submenu when clicking outside
-    document.addEventListener("click", function(event) {
-        if (!event.target.closest(".main-menu")) {
-            document.querySelectorAll(".submenu").forEach(function(submenu) {
-                submenu.style.display = "none";
-            });
-        }
-    });
-});
