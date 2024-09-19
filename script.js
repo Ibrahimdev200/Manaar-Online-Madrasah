@@ -167,28 +167,73 @@ window.addEventListener('scroll', function () {
     header.classList.toggle('sticky', window.scrollY > 50);
 });
 
+// Select elements
+const video = document.getElementById('myVideo');
+const playPauseButton = document.getElementById('playPauseButton');
+const playPauseIcon = document.getElementById('playPauseIcon');
 
-const playButton = document.getElementById('play-button');
-const video = document.getElementById('demo-video');
+// Toggle play/pause on button click
+playPauseButton.addEventListener('click', togglePlayPause);
 
-// When the play button is clicked
-playButton.addEventListener('click', function () {
-    // Check if the video is paused
+// Toggle play/pause on video screen click
+video.addEventListener('click', togglePlayPause);
+
+// Function to toggle play and pause
+function togglePlayPause() {
     if (video.paused) {
-        video.play(); // Play the video
-        playButton.style.display = 'none'; // Hide the play button
+        video.play();
+        playPauseIcon.classList.remove('fa-play');
+        playPauseIcon.classList.add('fa-pause');
+        playPauseButton.classList.add('hidden'); // Hide button when video is playing
+    } else {
+        video.pause();
+        playPauseIcon.classList.remove('fa-pause');
+        playPauseIcon.classList.add('fa-play');
+        playPauseButton.classList.remove('hidden'); // Show button when video is paused
     }
-});
+}
 
-// Optionally hide play button when the video is played by the controls
-video.addEventListener('play', function () {
-    playButton.style.display = 'none'; // Hide the play button when video starts
-});
-
-// Show the play button again when the video is paused
-video.addEventListener('pause', function () {
-    playButton.style.display = 'block'; // Show the play button if the video is paused
+// Show the play button when video ends
+video.addEventListener('ended', function() {
+    playPauseIcon.classList.remove('fa-pause');
+    playPauseIcon.classList.add('fa-play');
+    playPauseButton.classList.remove('hidden');
 });
 
 
 
+const rainContainer = document.querySelector('.rain-container');
+
+// Function to create a raindrop (dot)
+function createRaindrop() {
+    const raindrop = document.createElement('div');
+    raindrop.classList.add('raindrop');
+    
+    // Random size for the dot
+    const size = Math.random() * 5 + 2; // Range from 2px to 7px
+    raindrop.style.width = `${size}px`;
+    raindrop.style.height = `${size}px`;
+
+    // Random starting position
+    raindrop.style.left = `${Math.random() * window.innerWidth}px`;
+
+    // Random duration for the falling animation
+    const fallDuration = Math.random() * 3 + 2; // Between 2s and 5s
+    raindrop.style.animationDuration = `${fallDuration}s`;
+
+    // Add the raindrop to the container
+    rainContainer.appendChild(raindrop);
+
+    // Remove the raindrop after animation ends
+    setTimeout(() => {
+        raindrop.remove();
+    }, fallDuration * 1000);
+}
+
+// Function to continuously generate raindrops
+function generateRain() {
+    setInterval(createRaindrop, 100); // Create a raindrop every 100ms
+}
+
+// Start generating raindrops
+generateRain();

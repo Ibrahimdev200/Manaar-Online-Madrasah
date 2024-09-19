@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="image/logo2.jpeg" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
@@ -31,8 +32,8 @@
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="programs.html">Programs</a></li>
-            <li><a href="#">Apply</a></li>
-            <li><a href="download-form.html">Get-Form</a></li>
+            <li><a href="game.html">Quiz</a></li>
+            <li><a href="apply.html">Apply</a></li>
             <li><a href="#">Login</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -53,15 +54,15 @@
     <section class="carousel-section">
         <div class="carousel-images">
             <div class="main-image-wrapper">
-                <img src="image/pexels-maven-1361670.jpg" alt="Quran Image 1" class="main-image active">
+                <img src="image/welcome1.jpg" alt="Quran Image 1" class="main-image active">
                 <div class="quote-overlay active">Surah Al-Mujadila (58:11): "Allah will raise those who have believed among you and those who were given knowledge, by degrees. And Allah is Acquainted with what you do."</div>
                 <img src="image/abdullah-arif-Dxi6KbpvUgA-unsplash.jpg" alt="Quran Image 1" class="main-image active">
                 <div class="quote-overlay active"> Surah Al-Ankabut (29:69): "And those who strive for Us - We will surely guide them to Our ways. And indeed, Allah is with the doers of good."</div>
-                <img src="image/—Pngtree—happy muslim kids vector_9057753.png" alt="Quran Image 1" class="main-image active">
+                <img src="image/welcome.webp" alt="Quran Image 1" class="main-image active">
                 <div class="quote-overlay active"> Al-Ankabut (29:69): "And those who strive for Us - We will surely guide them to Our ways. And indeed, Allah is with the doers of good."</div>
                 <img src="image/pexels-konevi-2236674.jpg" alt="Quran Image 1" class="main-image active">
                 <div class="quote-overlay active">Surah Al-Alaq (96:1-5): "Recite in the name of your Lord who created. Created man from a clinging substance. Recite, and your Lord is the most Generous - Who taught by the pen - Taught man that which he knew not."</div>
-                <img src="image/group-muslim-students-using-mobile-phones.jpg" alt="Quran Image 1" class="main-image active">
+                <img src="image/new4.jpg" alt="Quran Image 1" class="main-image active">
                 <div class="quote-overlay active">Surah Al-Mujadila (58:11):
 
                     "Yarfa'illāhu alladhīna āmanū minkum walladhīna ūtū l-‘ilmā darajātin."
@@ -70,10 +71,10 @@
         </div>
     </section>
     <div class="carousel-text">
-        <h2>Assalamu 'alaikum warahmatullahi wabarakātuh Welcome to <span>Manaar Online Madrasah</span></h2>
+        <h2>Assalamu 'alaikum warahmatullahi wabarakātuh <br> Welcome To <br><span>Manaar Online Madrasah</span></h2>
         <div class="text-wrapper">
            
-            <button class="btn request-demo"><a href="contact.html" class="btn">Talk to a Tutor</a> </button>
+            <button class="btn request-demo"><a href="contact.html" class="btn">Talk to the Admin</a> </button>
         </div>
     </div>
 <!-- Features Section -->
@@ -102,22 +103,25 @@
 </div>
 
 <section class="video-section">
-    <div class="text-container">
-        <h2>How we teach?</h2>
-        <h3>Watch Video</h3>
-        <p>Don't know how it works? Watch our demo Class video now.</p>
+    
+        <div class="lqa-steps-content">
+            <h1>How we teach?<span><br> Watch Video</span></h1>
+        <p class="lqa-steps-high">Don't know how it works? Watch our demo Class video now.</p>
     </div>
     <div class="video-container">
         <div class="video-wrapper">
-            <!-- Video element with a poster image -->
-            <video id="demo-video" width="100%" height="auto" poster="image/abdullah-arif-Dxi6KbpvUgA-unsplash.jpg" controls>
-                <source src="video/The-Quran-Kids-Short-Film-Inspirational.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+            <video id="myVideo" poster="image/pic1.jpeg">
+                <source src="vedio/The Quran Kids _ Short Film _ Inspirational.mp4" type="video/mp4">
+                Your browser does not support HTML video.
             </video>
-            <!-- Play button image overlay -->
-            <div class="play-button" id="play-button"></div>
+            <div class="play-pause-btn" id="playPauseButton">
+                <i id="playPauseIcon" class="fas fa-play"></i>
+            </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="scripts.js"></script>
 </section>
 
 <div class="events-container">
@@ -189,12 +193,12 @@
                 <div class="lqa-steps-step">
                     <div class="lqa-steps-icon"><img src="image/oneclick-icon.svg" alt=""></div>
                     <h2>One Click Registration</h2>
-                    <p>Simply <a href="#" class="btn span">Click Here</a> which will take you to the registration page. You can register for free online Quran classes with our online Quran teachers just by filling in your name and contact information.</p>
+                    <p>Simply <a href="apply.html" class="btn span">Click Here</a> which will take you to the registration page. You can register for free online Quran classes with our online Quran teachers just by filling in your name and contact information.</p>
                 </div>
                 <div class="lqa-steps-step">
                     <div class="lqa-steps-icon"><img src="image/schedule-free-trial-icon.svg" alt=""></div>
                     <h2>Schedule Free Consultation</h2>
-                    <p>Upon receiving your registration, we will contact you back to set your convenience time for your Free <a href="contact.html " class="btn span">Quran Trial Classes</a> and give you an overview of our Quran teaching process.</p>
+                    <p>Upon receiving  your <a href="apply.html" class="btn span">Registration,</a> we will contact you back to set your convenience time for your classes and give you an overview of our Quran teaching process.</p>
                 </div>
                 <div class="lqa-steps-step">
                     <div class="lqa-steps-icon"><img src="image/take-first-class-icon.svg" alt=""></div>
@@ -259,7 +263,10 @@
     </div>
 </div>
 
-
+<!-- WhatsApp Icon -->
+<a href="https://wa.me/09023507071" class="whatsapp-icon" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Manaar Online Madrasah. All rights reserved.</p>
@@ -289,7 +296,7 @@
             <p>We appreciate your interest in volunteering to this. Please fill out our contact form  <a href="contact.html"> Contact Us</a> page.</p>and specify "volunteer" as your purpose message. One of our team members will reach out to you soon.</p>
         </div>
     </div>
-    
+    <div class="rain-container"></div>
 
     <!-- Scripts -->
     <script src="script.js"></script>

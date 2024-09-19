@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Knowledge Quiz</title>
+    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Menu Bar -->
+    <header>
+        <div class="logo">
+            <img src="image/logo2-removebg-preview.png" alt="Logo" class="logo-img"> <!-- Replace with your logo image -->
+            <span class="logo-text">MANAAR-UL-HUDA</span>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav id="nav-menu" class="">
+            <ul class="menu-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="apply.html">Apply</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Islamic Knowledge Quiz 🕌</h1>
+        <div id="quiz-container" class="hidden">
+            <div id="question"></div>
+            <div id="options"></div>
+            <button id="next-button" class="hidden">Next Question</button>
+            <div id="timer">Time Left: <span id="time">300</span> seconds</div>
+        </div>
+        <div id="result-container" class="hidden">
+            <h2>Your Result: <span id="score"></span></h2>
+            <p id="advice"></p>
+            <button id="play-again"><a href="game.html" class="game-btn">Play Again</a></button>
+            <button id="exit"><a href="index.html" class="game-btn">Exit</a></button>
+        </div>
+        <button id="start-button">Start Quiz</button>
+    </div>
+    <!-- Quran Verses Section -->
+    <div class="quran-verses">
+        <h2>Quran Verses 📖</h2>
+        <div class="verses-container">
+            <div class="verse">"Indeed, with hardship [will be] ease." (Quran 94:6)</div>
+            <div class="verse">"And We have not sent you, [O Muhammad], except as a mercy to the worlds." (Quran 21:107)</div>
+            <div class="verse">"Verily, in the remembrance of Allah do hearts find rest." (Quran 13:28)</div>
+            <div class="verse">"And whoever fears Allah - He will make for him a way out." (Quran 65:2)</div>
+        </div>
+    </div>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 MANAAR-UL-HUDA. All Rights Reserved.</p>
+    </footer>
+    <script src="game.js"></script>
+  
+</body>
+</html>

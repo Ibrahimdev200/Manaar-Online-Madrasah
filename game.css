@@ -1,0 +1,180 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo-text{
+    color: orange;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.menu-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-links a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+#timer {
+    margin: 20px 0;
+    font-size: 20px;
+    color: #dc3545;
+}
+
+.quran-verses {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.verses-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.verse {
+    background: #e7f3fe;
+    border: 1px solid #bee3f8;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 25px;
+    animation: fade-in 0.5s ease forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.game-btn{
+    text-decoration: none;
+    color: wheat;
+    font-weight: bolder;
+}
+
+
+
+.hamburger {
+    display: none; /* Hidden by default */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+}
+
+.menu-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger on smaller screens */
+    }
+    
+    nav {
+        display: none; /* Hide navigation by default on small screens */
+        position: absolute;
+        top: 60px; /* Position below header */
+        left: 0;
+        width: 100%;
+        background-color: #007BFF;
+        z-index: 1;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack links vertically */
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    nav.hidden {
+        display: none; /* Hide nav when class hidden is applied */
+    }
+}
