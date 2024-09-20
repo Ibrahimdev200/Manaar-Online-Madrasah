@@ -237,3 +237,9 @@ function generateRain() {
 
 // Start generating raindrops
 generateRain();
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Add any interactivity here (if needed)
+});
