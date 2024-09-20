@@ -1,180 +1,229 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* Reset default styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
+/* General body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f6f7;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Header Section */
 header {
+    background: linear-gradient(90deg, #006400, #00a651);
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
-    color: white;
-    text-transform: uppercase;
-    font-weight: bolder;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+}
 
-    padding: 10px 20px;
+header:hover {
+    background-color: #005b3c;
 }
 
 .logo {
     display: flex;
     align-items: center;
 }
-.logo-text{
-    color: orange;
-}
 
 .logo-img {
     width: 50px;
-    height: 50px;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
-.menu-links {
+.logo-text {
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+}
+
+nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    align-items: center;
 }
 
-.menu-links a {
-    color: white;
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
     text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
-.menu-links a:hover {
-    text-decoration: underline;
+nav ul li a:hover, .menu-links .active {
+    background-color: #ff7f50;
+    transform: scale(1.1);
 }
 
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Responsive Menu for mobile */
+.check {
+    display: none;
+}
+
+.check:checked ~ nav ul {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+       display: none;
+        flex-direction: column;
+        background-color: #006400;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        height: 50vh;
+        margin-top: 2rem;
+        font-size: 30px;
+        font-weight: bolder;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+/* Container styling */
 .container {
     text-align: center;
-    background: white;
-    padding: 20px;
+    padding: 70px 20px;
+    background-color: #fff;
+    margin: 40px 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.container h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    color: #333;
+    letter-spacing: 1.2px;
+}
+
+button {
+    background: linear-gradient(90deg, #006400, #00a651);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #005b3c;
+    transform: scale(1.1);
+}
+
+.game-btn{
+    text-decoration: none;
+    color: #f5f6f7;
+    font-weight: bold;
 }
 
 .hidden {
     display: none;
 }
 
-button {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-}
-
-#timer {
-    margin: 20px 0;
-    font-size: 20px;
-    color: #dc3545;
-}
-
+/* Quran Verses Section */
 .quran-verses {
-    margin-top: 20px;
     text-align: center;
+    margin: 60px auto;
+    padding: 50px;
+    background: linear-gradient(120deg, #ffebcd, #ffe4b5);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.quran-verses h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #006400;
 }
 
 .verses-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.verse {
-    background: #e7f3fe;
-    border: 1px solid #bee3f8;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 25px;
-    animation: fade-in 0.5s ease forwards;
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-.game-btn{
-    text-decoration: none;
-    color: wheat;
-    font-weight: bolder;
-}
-
-
-
-.hamburger {
-    display: none; /* Hidden by default */
-    font-size: 24px;
-    cursor: pointer;
-}
-
-nav {
-    display: flex;
-}
-
-.menu-links {
-    list-style: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
-.menu-links a {
+.verse {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.verse:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styling */
+footer {
+    background-color: #006400;
     color: white;
-    text-decoration: none;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 16px;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.menu-links a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive styles */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .hamburger {
-        display: block; /* Show hamburger on smaller screens */
-    }
-    
-    nav {
-        display: none; /* Hide navigation by default on small screens */
-        position: absolute;
-        top: 60px; /* Position below header */
-        left: 0;
-        width: 100%;
-        background-color: #007BFF;
-        z-index: 1;
+    .container h1 {
+        font-size: 32px;
     }
 
-    nav ul {
-        flex-direction: column; /* Stack links vertically */
-        width: 100%;
-        padding: 10px 0;
+    button {
+        font-size: 16px;
     }
 
-    nav ul li {
-        text-align: center;
+    .verse {
         margin: 10px 0;
-    }
-
-    nav.hidden {
-        display: none; /* Hide nav when class hidden is applied */
     }
 }
